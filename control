@@ -1,0 +1,9 @@
+Package: com.nightwind.cleanerdownloadedmusic
+Name: CleanerDownloadedMusic
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Clean up the downloaded music cells in the Apple Music app.
+Maintainer: Nightwind
+Author: Nightwind
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
