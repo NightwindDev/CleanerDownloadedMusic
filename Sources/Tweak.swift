@@ -9,6 +9,7 @@ private struct Hooks {
     static func hook() {
 		guard let targetClass = objc_getClass("MusicApplication.SongCell") as? AnyClass else { return }
 		guard let symbolButtonClass = objc_getClass("MusicCoreUI.SymbolButton") as? AnyClass else { return }
+		guard let textStackViewClass = (objc_getClass("MusicApplication.TextStackView") ?? objc_getClass("_TtCV16MusicApplication4Text9StackView")) as? AnyClass else { return }
 
 		var origIMP: IMP?
 		let hook: @convention (block) (UICollectionViewCell, Selector) -> Void = { target, selector in
@@ -18,6 +19,13 @@ private struct Hooks {
 			target.contentView.subviews.forEach { subview in
 				if subview.isKind(of: symbolButtonClass) {
 					subview.isHidden = true
+				} else if subview.isKind(of: textStackViewClass) {
+					subview.frame = CGRect(
+						x: subview.frame.origin.x,
+						y: subview.frame.origin.y,
+						width: target.frame.size.width - subview.frame.origin.x - 20,
+						height: target.frame.size.height
+					)
 				}
 			}
 		}
