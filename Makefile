@@ -7,7 +7,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = CleanerDownloadedMusic
 
-CleanerDownloadedMusic_FILES = Sources/Tweak.S Sources/Tweak.swift
+CleanerDownloadedMusic_FILES = Sources/Tweak.S Sources/Tweak.swift Sources/Ivars.swift
 CleanerDownloadedMusic_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
